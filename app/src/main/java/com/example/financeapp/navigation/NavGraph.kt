@@ -34,5 +34,26 @@ fun AppNavGraph(
                 }
             )
         }
+
+        composable(Routes.TRANSACTIONS) {
+            TransactionListScreen(
+                viewModel = viewModel,
+                onNavigateToAdd = {
+                    navController.navigate(Routes.ADD_TRANSACTION)
+                },
+                onBack = {
+                    navController.popBackStack()
+                }
+            )
+        }
+
+        composable(Routes.ADD_TRANSACTION) {
+            AddTransactionScreen(
+                viewModel = viewModel,
+                onBack = {
+                    navController.popBackStack()
+                }
+            )
+        }
     }
 }
