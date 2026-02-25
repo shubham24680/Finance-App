@@ -8,6 +8,7 @@ import com.example.financeapp.ui.screens.*
 import com.example.financeapp.viewmodel.FinanceViewModel
 
 object Routes {
+    const val ONBOARDING = "onboarding"
     const val DASHBOARD = "dashboard"
     const val TRANSACTIONS = "transactions"
     const val ADD_TRANSACTION = "add_transaction"
@@ -20,8 +21,14 @@ fun AppNavGraph(
 ) {
     NavHost(
         navController = navController,
-        startDestination = Routes.DASHBOARD
+        startDestination = Routes.ONBOARDING
     ) {
+
+        composable(Routes.ONBOARDING) {
+            OnboardingScreen(
+                onNavigateToHome = { navController.navigate(Routes.DASHBOARD) }
+            )
+        }
 
         composable(Routes.DASHBOARD) {
             DashboardScreen(
